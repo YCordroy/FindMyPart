@@ -1,0 +1,242 @@
+[
+  {
+    "model": "partfinder.mark",
+    "pk": 1,
+    "fields": {
+      "name": "Honda",
+      "producer_country_name": "Япония"
+    }
+  },
+  {
+    "model": "partfinder.mark",
+    "pk": 2,
+    "fields": {
+      "name": "Toyota",
+      "producer_country_name": "Япония"
+    }
+  },
+  {
+    "model": "partfinder.mark",
+    "pk": 3,
+    "fields": {
+      "name": "Mazda",
+      "producer_country_name": "Япония"
+    }
+  },
+  {
+    "model": "partfinder.mark",
+    "pk": 4,
+    "fields": {
+      "name": "Kia",
+      "producer_country_name": "Корея"
+    }
+  },
+  {
+    "model": "partfinder.mark",
+    "pk": 5,
+    "fields": {
+      "name": "Audi",
+      "producer_country_name": "Германия"
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 1,
+    "fields": {
+      "name": "Civic",
+      "mark_id": 1
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 2,
+    "fields": {
+      "name": "Fit",
+      "mark_id": 1
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 3,
+    "fields": {
+      "name": "Accord",
+      "mark_id": 1
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 4,
+    "fields": {
+      "name": "Stepwgn",
+      "mark_id": 1
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 5,
+    "fields": {
+      "name": "CR-V",
+      "mark_id": 1
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 6,
+    "fields": {
+      "name": "Corolla",
+      "mark_id": 2
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 7,
+    "fields": {
+      "name": "Prius",
+      "mark_id": 2
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 8,
+    "fields": {
+      "name": "Yaris",
+      "mark_id": 2
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 9,
+    "fields": {
+      "name": "Aqua",
+      "mark_id": 2
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 10,
+    "fields": {
+      "name": "Vitz",
+      "mark_id": 2
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 11,
+    "fields": {
+      "name": "Mazda 3",
+      "mark_id": 3
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 12,
+    "fields": {
+      "name": "Mazda 6",
+      "mark_id": 3
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 13,
+    "fields": {
+      "name": "Mazda 2",
+      "mark_id": 3
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 14,
+    "fields": {
+      "name": "CX-30",
+      "mark_id": 3
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 15,
+    "fields": {
+      "name": "CX-50",
+      "mark_id": 3
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 16,
+    "fields": {
+      "name": "K5",
+      "mark_id": 4
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 17,
+    "fields": {
+      "name": "Rio",
+      "mark_id": 4
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 18,
+    "fields": {
+      "name": "Sportage",
+      "mark_id": 4
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 19,
+    "fields": {
+      "name": "Ceed",
+      "mark_id": 4
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 20,
+    "fields": {
+      "name": "Soul",
+      "mark_id": 4
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 21,
+    "fields": {
+      "name": "A4",
+      "mark_id": 5
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 22,
+    "fields": {
+      "name": "Q3",
+      "mark_id": 5
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 23,
+    "fields": {
+      "name": "A6",
+      "mark_id": 5
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 24,
+    "fields": {
+      "name": "A8",
+      "mark_id": 5
+    }
+  },
+  {
+    "model": "partfinder.model",
+    "pk": 25,
+    "fields": {
+      "name": "A3",
+      "mark_id": 5
+    }
+  }
+]
