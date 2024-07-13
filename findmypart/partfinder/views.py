@@ -58,7 +58,6 @@ def search_parts(request):
     paginator = Paginator(queryset, settings.PAGINATE_NUMBER)
     current_page = paginator.get_page(data['page'])
 
-    # Добавление необходимых полей
     data = serialize_search_part(queryset, current_page)
 
     return JsonResponse(data, safe=False)

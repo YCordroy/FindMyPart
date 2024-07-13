@@ -7,6 +7,8 @@ def search_parts_filter(data):
     """Формирование подзапроса для фильтра запчастей"""
     query = Q()
     # Добавление фильтров из запроса
+    if data.get('model_name'):
+        query &= Q(model__name__icontains=data['model_name'])
     if data.get('mark_name'):
         query &= Q(mark__name__icontains=data['mark_name'])
     if data.get('part_name'):
