@@ -72,6 +72,7 @@ class Part(VisibleModel):
         max_digits=10,
         decimal_places=2
     )
+    json_data = models.JSONField()
 
     class Meta:
         verbose_name = 'запчасть'
