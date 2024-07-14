@@ -32,7 +32,11 @@ class PartAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'is_visible',
+        'mark_name',
+        'model_name',
     )
     list_editable = (
         'is_visible',
     )
+    list_filter = ('mark_id', 'model_id',)
+    search_fields = ('name',)

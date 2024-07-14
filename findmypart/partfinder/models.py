@@ -20,6 +20,14 @@ class VisibleModel(models.Model):
     def __str__(self):
         return self.name
 
+    def mark_name(self):
+        return self.mark.name
+
+    def model_name(self):
+        return self.model.name
+
+    mark_name.short_description = 'Марка'
+    model_name.short_description = 'Модель'
 
 class Mark(VisibleModel):
     producer_country_name = models.CharField(
@@ -56,10 +64,10 @@ class Model(VisibleModel):
             models.Index(fields=['name'])
         ]
 
-    def mark_name(self):
-        return self.mark.name
-
-    mark_name.short_description = 'Марка'
+    # def mark_name(self):
+    #     return self.mark.name
+    #
+    # mark_name.short_description = 'Марка'
 
 
 class Part(VisibleModel):
