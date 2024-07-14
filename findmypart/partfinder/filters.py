@@ -24,7 +24,9 @@ def search_parts_filter(data):
     if data.get('params'):
         request_params = data['params']
         params_encode = {
-            f'json_data__{param}__icontains': value
+            f'json_data__{param}__icontains'
+            if not isinstance(value, int)
+            else f'json_data__{param}': value
             for param, value in request_params.items()
         }
         query &= Q(**params_encode)

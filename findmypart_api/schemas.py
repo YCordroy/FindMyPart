@@ -9,6 +9,7 @@ class SearchParams(BaseModel):
     price_lte: float | None = None
     params: dict | None = None
     mark_list: list[int] | None = None
+    page: int = 1
 
 
 class PartResponse(BaseModel):

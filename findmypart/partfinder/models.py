@@ -29,6 +29,7 @@ class VisibleModel(models.Model):
     mark_name.short_description = 'Марка'
     model_name.short_description = 'Модель'
 
+
 class Mark(VisibleModel):
     producer_country_name = models.CharField(
         verbose_name='Страна производитель',
@@ -63,11 +64,6 @@ class Model(VisibleModel):
         indexes = [
             models.Index(fields=['name'])
         ]
-
-    # def mark_name(self):
-    #     return self.mark.name
-    #
-    # mark_name.short_description = 'Марка'
 
 
 class Part(VisibleModel):
