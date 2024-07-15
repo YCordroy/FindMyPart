@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.post("/search/part/", response_model=SearchResponse)
-def search_parts(data: SearchParams, conn=Depends(get_db)) -> SearchResponse:
-    parts: tuple = search_part_sql(data, conn)
-    data: dict = serialize_search_part(*parts)
+async def search_parts(data: SearchParams, conn=Depends(get_db)) -> SearchResponse:
+    parts: tuple = await search_part_sql(data, conn)
+    data: dict = await serialize_search_part(*parts)
     return data

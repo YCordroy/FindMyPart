@@ -1,7 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, BaseConfig
 
 
 class SearchParams(BaseModel):
+    class Config(BaseConfig):
+        protected_namespaces = ()
+
     model_name: str | None = None
     mark_name: str | None = None
     part_name: str | None = None

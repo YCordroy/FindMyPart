@@ -1,4 +1,4 @@
-def serialize_part(part):
+async def serialize_part(part):
     return {
         "mark": {
             "id": part['mark_id'],
@@ -15,8 +15,8 @@ def serialize_part(part):
     }
 
 
-def serialize_search_part(parts, count, summ):
-    serialized_parts: list[dict] = [serialize_part(part) for part in parts]
+async def serialize_search_part(parts, count, summ):
+    serialized_parts: list[dict] = [await serialize_part(part) for part in parts]
     return {
         "response": serialized_parts,
         "count": count,

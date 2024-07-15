@@ -56,7 +56,8 @@ def search_parts(request):
     )
 
     paginator = Paginator(queryset, settings.PAGINATE_NUMBER)
-    current_page = paginator.get_page(data['page'])
+    page = data['page'] if data.get('page') else 1
+    current_page = paginator.get_page(page)
 
     data = serialize_search_part(queryset, current_page)
 
