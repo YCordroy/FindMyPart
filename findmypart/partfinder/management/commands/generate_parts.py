@@ -42,6 +42,7 @@ class Command(BaseCommand):
         return [(model.mark_id, model.id) for model in models]
 
     def handle(self, *args, **options):
+        parts = []
         for _ in range(10000):
             name = choice(part_names)
             mark, model = choice(self.get_mark_model())
@@ -55,4 +56,5 @@ class Command(BaseCommand):
                 price=price,
                 json_data=json_data
             )
-            part.save()
+            parts.append(part)
+        Part.objects.bulk_create(parts)

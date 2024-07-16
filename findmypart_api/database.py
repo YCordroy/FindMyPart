@@ -1,13 +1,17 @@
+import os
+from dotenv import load_dotenv
 from psycopg2 import connect
 from psycopg2.extras import RealDictCursor
+
+load_dotenv()
 
 
 def get_db():
     conn = connect(
-        database="app",
-        user="postgres",
-        password="admin",
-        host="localhost",
+        database=os.getenv('DB'),
+        user=os.getenv('NAME_USER'),
+        password=os.getenv('PASS_WEB'),
+        host="db",
         port="5432",
         cursor_factory=RealDictCursor)
     try:
