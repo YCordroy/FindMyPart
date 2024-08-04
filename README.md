@@ -158,8 +158,3 @@ Django.
 FastApi.
 ```
 'http://вашсервер/fastapi/...'
-<<<<<<< HEAD
-```
-=======
-```
->>>>>>> f6be664a5cf12c00b5bad17b7e44b4c5ccb2ab5a
