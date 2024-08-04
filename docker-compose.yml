@@ -5,7 +5,7 @@ services:
     build:
       context: ./findmypart
       dockerfile: Dockerfile
-    command: gunicorn findmypart.wsgi:application --bind 0.0.0.0:8000 --workers=2 --threads=4 --worker-class=gthread
+    command: gunicorn findmypart.wsgi:application --bind 0.0.0.0:8000 --workers=4 --threads=4 --worker-class=gthread
     volumes:
       - ./findmypart:/code/findmypart
     ports:
