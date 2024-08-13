@@ -15,9 +15,20 @@ class SearchParams(BaseModel):
     page: int = 1
 
 
+class MarkResponse(BaseModel):
+    mark_id: int
+    name: str
+    producer_country_name: str
+
+
+class ModelResponse(BaseModel):
+    model_id: int
+    name: str
+
+
 class PartResponse(BaseModel):
-    mark: dict
-    model: dict
+    mark: MarkResponse
+    model: ModelResponse
     name: str
     json_data: dict
     price: float
