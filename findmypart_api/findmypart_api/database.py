@@ -12,7 +12,7 @@ password = os.getenv('PASS_WEB')
 
 async def db():
     conn = await asyncpg.connect(user=user, password=password,
-                                 database=database, host='127.0.0.1')
+                                 database=database, host='db')
     try:
         yield conn
     finally:
