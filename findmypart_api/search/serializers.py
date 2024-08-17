@@ -1,4 +1,6 @@
-from schemas import (
+import json
+
+from .schemas import (
     MarkResponse,
     ModelResponse,
     PartResponse,
@@ -20,7 +22,7 @@ async def serialize_part(part):
         mark=mark,
         model=model,
         name=part['name'],
-        json_data=part['json_data'],
+        json_data=json.loads(part["json_data"]),
         price=float(part['price'])
     )
     return part

@@ -1,3 +1,6 @@
+from django.db.models import Sum
+
+
 def serialize_part(part):
     return {
         "mark": {
@@ -17,10 +20,36 @@ def serialize_part(part):
 
 def serialize_search_part(queryset, current_page):
     total_count = queryset.count()
-    total_sum = sum(part.price for part in queryset)
+
+    total_sum = queryset.aggregate(
+        total_sum=Sum('price')
+    )['total_sum'] or 0.0
+
     serialized_parts = [serialize_part(part) for part in current_page]
     return {
         "response": serialized_parts,
         "count": total_count,
         "summ": float(total_sum),
+    }
+
+
+def serialize_mark(mark):
+    return {
+        'mark_id': mark.id,
+        'name': mark.name,
+        'producer_country_name': mark.producer_country_name
+    }
+
+
+def serialize_model(model):
+    return {
+        'mark': {
+            "id": model.mark.id,
+            "name": model.mark.name,
+            "producer_country_name": model.mark.producer_country_name,
+        },
+        'model': {
+            'name': model.name,
+            'model_id': model.id,
+        }
     }

@@ -4,40 +4,50 @@ from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.conf import settings
 from django.views.decorators.http import require_POST, require_GET
-from django.views.decorators.csrf import csrf_exempt
 
 from .filters import search_parts_filter
 from .models import Mark, Model, Part
-from .serializers import serialize_search_part
+from .serializers import (
+    serialize_search_part,
+    serialize_mark,
+    serialize_model
+)
 
 
 @require_GET
 def get_mark_list(request):
     marks = Mark.objects.filter(is_visible=True)
-    data = [
-        {
-            'mark_id': mark.id,
-            'name': mark.name,
-            'producer_country_name': mark.producer_country_name
-        } for mark in marks
-    ]
+    data = [serialize_mark(mark) for mark in marks]
     return JsonResponse(data, safe=False)
 
 
 @require_GET
 def get_model_list(request):
     models = Model.objects.filter(is_visible=True)
-    data = [
-        {
-            'model_id': model.id,
-            'name': model.name,
-        } for model in models
-    ]
+    data = [serialize_model(model) for model in models]
     return JsonResponse(data, safe=False)
 
 
 @require_POST
-@csrf_exempt
+def search_model(request):
+    data = json.loads(request.body.decode('utf-8'))
+    filter = data.get('mark_name')
+    if filter:
+        queryset = (
+            Model
+            .objects
+            .filter(
+                mark__name__icontains=filter,
+                is_visible=True
+            )
+            .order_by('id')
+        )
+        print(queryset)
+        data = [serialize_model(model) for model in queryset]
+        return JsonResponse(data, safe=False)
+
+
+@require_POST
 def search_parts(request):
     """
         Фильтрация запчастей
@@ -54,6 +64,15 @@ def search_parts(request):
         .filter(query, is_visible=True)
         .order_by('id')
     )
+    if queryset.count == 0:
+        return JsonResponse(
+            {
+                "response": [],
+                "count": 0,
+                "summ": 0.0
+            },
+            safe=False
+        )
 
     paginator = Paginator(queryset, settings.PAGINATE_NUMBER)
     page = data['page'] if data.get('page') else 1

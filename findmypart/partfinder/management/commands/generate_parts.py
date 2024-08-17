@@ -35,17 +35,14 @@ class Command(BaseCommand):
             json_data["count"] = randrange(0, 50)
         return json_data
 
-    @staticmethod
-    def get_mark_model():
-        # Получение марки и модели
-        models = Model.objects.all()
-        return [(model.mark_id, model.id) for model in models]
 
     def handle(self, *args, **options):
         parts = []
+        models = Model.objects.all()
+        mark_model = [(model.mark_id, model.id) for model in models]
         for _ in range(10000):
             name = choice(part_names)
-            mark, model = choice(self.get_mark_model())
+            mark, model = choice(mark_model)
             price = float(randrange(1000, 50001, 500))
             json_data = self.get_json_data()
 

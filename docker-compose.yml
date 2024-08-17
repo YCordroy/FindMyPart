@@ -12,8 +12,6 @@ services:
       - "8000:8000"
     depends_on:
       - db
-    environment:
-      - DATABASE_URL=postgres://postgres:admin@db:5432/app
     networks:
       - app_network
 
@@ -28,8 +26,6 @@ services:
       - ./findmypart_api:/code/findmypart_api
     depends_on:
       - db
-    environment:
-      - DATABASE_URL=postgres://postgres:admin@db:5432/app
     networks:
       - app_network
 
